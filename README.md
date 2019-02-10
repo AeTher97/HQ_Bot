@@ -5,6 +5,9 @@ A bot to help answer questions on trivia apps like HQ and CashShow. This bot tak
 
 Since it is against the policy of HQ-trivia i do not encourage anyone to use this during a live game and this is purely for educational purposes.  
 
+# Polish Version
+Project is not mine this fork is dedicated to make app working with polish.
+
 ## Packages Used
 
 Use python 3.6. In particular the packages/libraries used are...
