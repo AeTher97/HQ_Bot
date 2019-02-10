@@ -9,5 +9,7 @@ pyscreenshot
 lxml
 wikipedia
 wxPython
+opencv-python
+pyperclip
 git+https://github.com/abenassi/Google-Search-API/
 halo

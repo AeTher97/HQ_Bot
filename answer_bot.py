@@ -19,6 +19,7 @@ from bs4 import BeautifulSoup
 from google import google
 from PIL import Image
 import pytesseract
+import pyperclip
 import argparse
 import cv2
 import os
@@ -133,7 +134,8 @@ def parse_question():
 		if flag :
 			if line != '' :
 				options.append(line)
-			
+	print(question)
+	pyperclip.copy(question)
 	return question, options
 
 # simplify question and remove which,what....etc //question is string
