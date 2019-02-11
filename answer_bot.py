@@ -16,8 +16,12 @@
 import json
 import urllib.request as urllib2
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from google import google
+from multiprocessing import Pool
 from PIL import Image
+from selenium.webdriver.support.ui import WebDriverWait
 import pytesseract
 import pyperclip
 import argparse
@@ -136,7 +140,25 @@ def parse_question():
 				options.append(line)
 	print(question)
 	pyperclip.copy(question)
+	pool = Pool(processes=3)
+	i=0
+	for option in options:
+		result = pool.apply_async(async_cos, (option,i,))
+		i+=1
 	return question, options
+
+def async_cos(option,i):
+
+	driver = webdriver.Chrome()
+	driver.set_window_size(1100, 800-i*50)
+	driver.set_window_position(500 + 300 , i*50)
+	driver.get("http://www.google.com")
+	element = driver.find_element_by_name("q")
+	element.send_keys(option)
+	element.submit()
+
+
+
 
 # simplify question and remove which,what....etc //question is string
 def simplify_ques(question):
